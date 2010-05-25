@@ -24,8 +24,6 @@ sub init {
     my $self = shift;
     return if $self->_pre_init;
 
-    my $request_inspector = Jifty->find_plugin('Jifty::Plugin::RequestInspector');
-
     for my $hook (@hooks) {
         next if $hook eq "before_request" or $hook eq "after_request";
         Jifty::Handler->add_trigger(
